@@ -154,3 +154,40 @@ public class build_AVL_Trees {
  * 10 30
  * 25
  */
+
+
+/*Node class:
+
+Defines a nested Node class to represent the nodes of the AVL tree.
+Each node contains:
+data: The integer value stored in the node.
+height: The height of the node in the tree.
+References to its left and right child nodes (left and right).
+height method:
+
+Computes and returns the height of a given node in the AVL tree.
+If the node is null, it returns 0.
+getBalance method:
+
+Computes and returns the balance factor of a given node, which is the difference between the heights of its left and right subtrees.
+rightRotate method:
+
+Performs a right rotation on a given node (y) and returns the new root of the subtree.
+This rotation is used to balance the AVL tree when the left subtree is taller than the right subtree.
+insert method:
+
+Inserts a new node with the specified key into the AVL tree.
+Balances the tree using rotations if necessary to maintain the AVL property (balance factor of -1, 0, or 1 for each node).
+Handles four possible unbalanced cases: left-left, right-right, left-right, and right-left.
+leftRotate method:
+
+Performs a left rotation on a given node (x) and returns the new root of the subtree.
+This rotation is used to balance the AVL tree when the right subtree is taller than the left subtree.
+levelOrder method:
+
+Performs a level-order traversal of the AVL tree and prints the nodes level by level.
+It uses a queue to keep track of nodes at each level.
+main method:
+
+In the main method, a series of integers (10, 20, 30, 40, 50, 25) are inserted into the AVL tree by repeatedly calling the insert method.
+The program then calls the levelOrder method to print the tree level by level.*/
