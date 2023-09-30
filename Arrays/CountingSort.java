@@ -39,3 +39,4 @@ public class CountingSort {
  *   Output:
  *   1 1 2 3 3 4 4 7
  */
+/*Counting sort is an example of a non-comparison-based sorting algorithm —  it sorts by mapping the value of each array element as an index of the auxiliary array.*/
