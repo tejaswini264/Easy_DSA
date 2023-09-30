@@ -54,3 +54,35 @@ public class HashMapOperations {
  * 2
  * true
  */
+
+/*
+This Java code demonstrates various operations on a `HashMap`:
+
+1. **Creation**: A `HashMap` called `hm` is created, which stores key-value pairs of country names and their corresponding populations.
+
+2. **Insertion**: Key-value pairs (country names and populations) are added to the `HashMap` using the `put` method. It's noted that if a key already exists, the new value will replace the old value.
+
+3. **Get**: The `get` method is used to retrieve the population of a specific country (e.g., "India"). It returns the value associated with the key.
+
+4. **ContainsKey**: The `containsKey` method checks whether a key exists in the `HashMap` or not. It returns `true` if the key is found and `false` otherwise.
+
+5. **Remove**: The `remove` method is used to remove a key-value pair from the `HashMap`. In this case, "China" is removed.
+
+6. **Size**: The `size` method is used to determine the number of key-value pairs in the `HashMap`.
+
+7. **Clear**: The `clear` method removes all key-value pairs from the `HashMap`.
+
+8. **IsEmpty**: The `isEmpty` method checks if the `HashMap` is empty (contains no key-value pairs).
+
+The code prints the results of these operations, and the output is explained as follows:
+
+- After insertion, the `HashMap` contains three key-value pairs.
+- The population of "India" is retrieved (120), and the population of "Indonesia" (which doesn't exist) returns `null`.
+- The `containsKey` method confirms the presence of "India" but not "Indonesia."
+- "China" is removed from the `HashMap`, resulting in two remaining key-value pairs.
+- The size of the `HashMap` is 2.
+- The `HashMap` is cleared, making it empty.
+- Finally, the `isEmpty` method confirms that the `HashMap` is empty (true).
+
+The code demonstrates the basic usage of `HashMap` operations in Java.
+    */
