@@ -152,7 +152,55 @@ public class implementHashMap {
     }
 }
 
+
 /*
+HashMap Class:
+
+
+The HashMap constructor initializes the HashMap with an initial size of 4 (N = 4) and creates an array of linked lists to store the data.
+For each index in the buckets array, a new linked list is created.
+hashFunction Method:
+
+This method takes a key as input and calculates a hash code for the key using its hashCode method.
+It then converts the hash code to a non-negative index within the buckets array using the modulo operation.
+SearchInLL Method:
+
+This method takes a key and an index (bi) as input and searches for the key within the linked list at the specified index.
+If the key is found in the linked list, the method returns the position (distance) of the key within the list. If not found, it returns -1.
+rehash Method:
+
+This method is called when the load factor (ratio of stored elements to the number of buckets) exceeds 2.0.
+It creates a new, larger array of linked lists and rehashes all existing key-value pairs into the new array.
+This operation effectively increases the capacity of the HashMap and helps maintain a low load factor for better performance.
+put Method:
+
+The put method allows you to add a key-value pair to the HashMap.
+It calculates the hash code of the key to determine the bucket index.
+If the key already exists in the bucket, it updates the corresponding value. If not, it adds a new Node to the linked list.
+After adding a key-value pair, it checks if the load factor exceeds 2.0 and triggers a rehash if necessary.
+containsKey Method:
+
+This method checks if a given key exists in the HashMap by searching the appropriate linked list at the calculated bucket index.
+remove Method:
+
+The remove method removes a key-value pair from the HashMap based on the provided key.
+It calculates the bucket index for the key, searches for the key in the linked list at that index, and removes it if found.
+After removal, it decrements the count of stored elements.
+get Method:
+
+The get method retrieves the value associated with a given key from the HashMap.
+It calculates the bucket index for the key, searches for the key in the linked list at that index, and returns the associated value if found.
+keySet Method:
+
+This method returns an ArrayList of all keys present in the HashMap by iterating through each bucket and linked list.
+isEmpty Method:
+
+This method checks if the HashMap is empty by examining whether the count of stored elements (n) is zero.
+main Method:
+
+In the main method, an instance of the custom HashMap class is created, and key-value pairs are added using the put method.
+
+
  * Output:
  * Nepal
  * US
