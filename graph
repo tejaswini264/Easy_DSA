@@ -1,0 +1,91 @@
+/*
+ *        Create a graph (Adjacency List)
+ */
+
+import java.util.ArrayList;
+
+public class CreateGraph_adjacencyList {
+    static class Edge {
+        int src;
+        int dest;
+        int wt;
+
+        public Edge(int s, int d, int w) {
+            this.src = s;
+            this.dest = d;
+            this.wt = w;
+        }
+    }
+
+    public static void main(String[] args) {
+        int v = 5;
+        ArrayList<Edge>[] graph = new ArrayList[v];
+
+        for (int i = 0; i < v; i++) {
+            graph[i] = new ArrayList<>();
+        }
+
+        // 0 vertex
+        graph[0].add(new Edge(0, 1, 5));
+
+        // 1 vertex
+        graph[1].add(new Edge(1, 0, 5));
+        graph[1].add(new Edge(1, 2, 1));
+        graph[1].add(new Edge(1, 3, 3));
+
+        // 2 vertex
+        graph[2].add(new Edge(2, 1, 1));
+        graph[2].add(new Edge(2, 3, 1));
+        graph[2].add(new Edge(2, 4, 2));
+
+        // 3 vertex
+        graph[3].add(new Edge(3, 2, 1));
+        graph[3].add(new Edge(3, 1, 3));
+
+        // 4 vertex
+        graph[4].add(new Edge(4, 2, 2));
+
+        // 2's neighbors
+        for (int i = 0; i < graph[2].size(); i++) {
+            Edge e = graph[2].get(i);
+            System.out.println(e.dest); // O(k)
+        }
+    }
+}
+
+/*
+ * Output:
+ * 1
+ * 3
+ * 4
+ */
+Edge Class:
+
+The Edge class represents an edge in the graph. It includes three fields: src (source vertex), dest (destination vertex), and wt (weight of the edge). This class is used to define the connections between vertices in the graph.
+Main Method:
+
+In the main method, the program initializes the number of vertices v as 5.
+An array of ArrayLists is created, named graph, to represent the adjacency list of the graph. Each element of this array corresponds to a vertex, and each ArrayList within the array contains the edges (connections) from that vertex to its neighbors.
+Initializing the Adjacency List:
+
+The program uses a loop to initialize each ArrayList within the graph array. For each vertex i (from 0 to v-1), a new ArrayList is created to store the edges connected to that vertex.
+Adding Edges:
+
+The program adds edges to the graph by populating the ArrayLists within the graph array.
+For example, it adds an edge from vertex 0 to vertex 1 with a weight of 5: graph[0].add(new Edge(0, 1, 5)). This signifies that there is a directed edge from vertex 0 to vertex 1 with a weight of 5.
+Printing Neighbors of Vertex 2:
+
+The program demonstrates how to access and print the neighbors of a specific vertex (vertex 2 in this case). It iterates through the ArrayList associated with vertex 2 and prints the destination vertex of each edge, which are the neighbors of vertex 2.
+Output:
+The program creates a graph with 5 vertices and adds various edges between them. It then prints the neighbors of vertex 2. The output reflects the neighbors of vertex 2:
+
+
+1
+3
+4
+In this example, vertex 2 has three neighbors (vertices 1, 3, and 4), and their destination vertices are printed. This demonstrates the adjacency list representation's ability to efficiently store and access the neighbors of each vertex in the graph.
+*/
+
+
+
+
