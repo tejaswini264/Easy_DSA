@@ -36,8 +36,20 @@ public class ContainerWithMostWaterVVI {
         System.out.println(storeWater(height));
     }
 }
+/*storeWater Method:
 
-/*
- *     Output
- *     49
- */
+This method takes an ArrayList of integers named height as input.
+It uses two nested loops to iterate through all possible pairs of vertical lines (represented by the indices i and j) within the ArrayList.
+For each pair of lines, it calculates the potential water trapped between them using the formula min(height[i], height[j]) * (j - i). Here, min(height[i], height[j]) represents the height of the shorter line, and (j - i) represents the width between the lines.
+It keeps track of the maximum water calculated among all pairs.
+Finally, it returns the maximum water value.
+main Method:
+
+In the main method, an ArrayList named height is created and populated with a series of integers representing the heights of vertical lines.
+These height values represent the heights of the vertical lines in a container.
+The storeWater method is called with the height ArrayList as input, and the maximum trapped water is calculated and printed to the console.
+Overall, this code demonstrates a brute-force approach to find the maximum water that can be trapped between two vertical lines in a container by considering all possible pairs of lines and calculating the water trapped between them.
+*/
+
+
+
