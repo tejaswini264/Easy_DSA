@@ -1,0 +1,159 @@
+Certainly, here are the code implementations for the two problems I mentioned:
+
+**Problem 1: AVL Tree Deletion**
+
+```java
+import java.util.*;
+
+public class AVLTreeDeletion {
+    // ... (Include the Node, height, getBalance, rightRotate, leftRotate,
+    // insert, levelOrder methods from the original code)
+
+    // Function to delete a key from AVL tree
+    public static Node deleteNode(Node root, int key) {
+        if (root == null)
+            return root;
+
+        if (key < root.data)
+            root.left = deleteNode(root.left, key);
+        else if (key > root.data)
+            root.right = deleteNode(root.right, key);
+        else {
+            if ((root.left == null) || (root.right == null)) {
+                Node temp = null;
+                if (temp == root.left)
+                    temp = root.right;
+                else
+                    temp = root.left;
+
+                if (temp == null) {
+                    temp = root;
+                    root = null;
+                } else
+                    root = temp;
+            } else {
+                Node temp = minValueNode(root.right);
+                root.data = temp.data;
+                root.right = deleteNode(root.right, temp.data);
+            }
+        }
+
+        if (root == null)
+            return root;
+
+        // Update the height of the current node
+        root.height = Math.max(height(root.left), height(root.right)) + 1;
+
+        // Get the balance factor
+        int balance = getBalance(root);
+
+        // Left Left Case
+        if (balance > 1 && getBalance(root.left) >= 0)
+            return rightRotate(root);
+
+        // Left Right Case
+        if (balance > 1 && getBalance(root.left) < 0) {
+            root.left = leftRotate(root.left);
+            return rightRotate(root);
+        }
+
+        // Right Right Case
+        if (balance < -1 && getBalance(root.right) <= 0)
+            return leftRotate(root);
+
+        // Right Left Case
+        if (balance < -1 && getBalance(root.right) > 0) {
+            root.right = rightRotate(root.right);
+            return leftRotate(root);
+        }
+
+        return root;
+    }
+
+    public static Node minValueNode(Node node) {
+        Node current = node;
+        while (current.left != null)
+            current = current.left;
+        return current;
+    }
+
+    public static void main(String[] args) {
+        Node root = null;
+        root = insert(root, 10);
+        root = insert(root, 20);
+        root = insert(root, 30);
+        root = insert(root, 40);
+        root = insert(root, 50);
+        root = insert(root, 25);
+
+        System.out.println("Original AVL Tree:");
+        levelOrder(root);
+
+        int keyToDelete = 30;
+        root = deleteNode(root, keyToDelete);
+
+        System.out.println("\nAVL Tree after deleting " + keyToDelete + ":");
+        levelOrder(root);
+    }
+}
+```
+
+**Problem 2: AVL Tree Search and Range Query**
+
+```java
+import java.util.*;
+
+public class AVLTreeSearchAndRangeQuery {
+    // ... (Include the Node, height, getBalance, rightRotate, leftRotate,
+    // insert, levelOrder methods from the original code)
+
+    // Function to search for a key in the AVL tree
+    public static boolean search(Node root, int key) {
+        if (root == null)
+            return false;
+        if (key == root.data)
+            return true;
+        if (key < root.data)
+            return search(root.left, key);
+        return search(root.right, key);
+    }
+
+    // Function to perform a range query on the AVL tree
+    public static void rangeQuery(Node root, int low, int high) {
+        if (root == null)
+            return;
+
+        if (low < root.data)
+            rangeQuery(root.left, low, high);
+
+        if (low <= root.data && high >= root.data)
+            System.out.print(root.data + " ");
+
+        if (high > root.data)
+            rangeQuery(root.right, low, high);
+    }
+
+    public static void main(String[] args) {
+        Node root = null;
+        root = insert(root, 10);
+        root = insert(root, 20);
+        root = insert(root, 30);
+        root = insert(root, 40);
+        root = insert(root, 50);
+        root = insert(root, 25);
+
+        System.out.println("Original AVL Tree:");
+        levelOrder(root);
+
+        int keyToSearch = 30;
+        boolean found = search(root, keyToSearch);
+        System.out.println("\nSearch for " + keyToSearch + ": " + (found ? "Found" : "Not Found"));
+
+        int low = 20, high = 40;
+        System.out.print("Range Query [" + low + ", " + high + "]: ");
+        rangeQuery(root, low, high);
+    }
+}
+```
+
+These code implementations extend the original AVL tree code to include deletion, search, and range query operations. You can now use these modified programs to perform these operations on AVL trees.
