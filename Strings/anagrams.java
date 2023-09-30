@@ -36,3 +36,21 @@ public class anagrams {
  * Output:
  * Strings are anagrams.
  */
+
+
+/*main method:
+
+In the main method, two strings str1 and str2 are defined as "rajkishorbgp" and "kishorbgpraj," respectively.
+The program then calls the anagrams function to check if str1 and str2 are anagrams.
+Depending on the result, the program prints either "Strings are anagrams" or "Strings are not anagrams."
+anagrams method:
+
+The anagrams method takes two strings, str1 and str2, as input and returns a Boolean value indicating whether they are anagrams.
+First, it checks if the lengths of the two strings are different. If they have different lengths, they cannot be anagrams, so the method returns false.
+The characters of both strings are converted to character arrays (str3 and str4).
+The Arrays.sort method is used to sort both character arrays.
+Then, the method iterates through the sorted character arrays and compares the characters at each position. If any pair of characters is not equal, the method returns false.
+If the loop completes without finding any unequal characters, the method returns true, indicating that the two strings are anagrams.
+Output:
+
+The program outputs either "Strings are anagrams" or "Strings are not anagrams" based on the result of the anagrams method.*/
